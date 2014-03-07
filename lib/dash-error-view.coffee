@@ -1,13 +1,13 @@
 {View} = require 'atom'
 
 module.exports =
-class DashView extends View
+class DashErrorView extends View
   @content: ->
-    @div class: 'dash overlay from-top', =>
+    @div class: 'dash dash-error-box overlay from-top', =>
       @div "The Dash package is Alive! It's ALIVE!", class: "message"
 
   initialize: (serializeState) ->
-    atom.workspaceView.command "dash:toggle", => @toggle()
+
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
@@ -16,9 +16,12 @@ class DashView extends View
   destroy: ->
     @detach()
 
-  toggle: ->
-    console.log "DashView was toggled!"
-    if @hasParent()
-      @detach()
-    else
-      atom.workspaceView.append(this)
+  show: ->
+    console.log "DashErrorView was called!"
+    console.log this
+    atom.workspaceView.append(this)
+    setTimeout @hide, 2000
+
+  hide: =>
+    console.log "Going to drop this"
+    @detach()

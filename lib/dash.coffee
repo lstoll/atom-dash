@@ -1,13 +1,15 @@
-DashView = require './dash-view'
+DashGoto = require './dash-goto'
 
 module.exports =
-  dashView: null
+  dashGoto: null
 
   activate: (state) ->
-    @dashView = new DashView(state.dashViewState)
+    console.log "Activate"
+    @dashGoto = new DashGoto(state.dashViewState)
+    console.log @dashGoto
 
   deactivate: ->
-    @dashView.destroy()
+    @dashGoto.destroy()
 
   serialize: ->
-    dashViewState: @dashView.serialize()
+    dashViewState: @dashGoto.serialize()
