@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable dash': 'dash:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'dash'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'dash:toggle' }
+      ]
+    ]
+  }
+]
