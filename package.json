@@ -1,11 +1,11 @@
 {
   "name": "dash",
   "main": "./lib/dash",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
-  "description": "A short description of your package",
+  "description": "Opens Dash.app",
   "activationEvents": ["dash:lookup"],
-  "repository": "https://github.com/atom/dash",
+  "repository": "https://github.com/lstoll/atom-dash",
   "license": "MIT",
   "engines": {
     "atom": ">0.60.0"
