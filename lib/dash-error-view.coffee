@@ -4,10 +4,9 @@ module.exports =
 class DashErrorView extends View
   @content: ->
     @div class: 'dash dash-error-box overlay from-top', =>
-      @div "The Dash package is Alive! It's ALIVE!", class: "message"
+      @div "", class: "message"
 
   initialize: (serializeState) ->
-
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
@@ -16,10 +15,11 @@ class DashErrorView extends View
   destroy: ->
     @detach()
 
-  show: ->
-    console.log "DashErrorView was called!"
-    console.log this
+  show: (message) ->
+    console.log "DashErrorView was called with message #{message}"
+    @message = message
     atom.workspaceView.append(this)
+    this.children('.dash .message').html(@message)
     setTimeout @hide, 2000
 
   hide: =>
