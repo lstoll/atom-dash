@@ -5,7 +5,6 @@ module.exports =
 
   activate: (state) ->
     @dashGoto = new DashGoto(state.dashViewState)
-    console.log @dashGoto
 
   deactivate: ->
     @dashGoto.destroy()
