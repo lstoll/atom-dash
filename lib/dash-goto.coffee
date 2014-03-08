@@ -5,8 +5,9 @@ DashErrorView = require './dash-error-view'
 module.exports =
 class DashGoto
   languageMap: {
-    "Ruby":         "ruby",
-    "CoffeeScript": "coffee"
+    "Ruby"         : "ruby",
+    "CoffeeScript" : "coffee",
+    "JavaScript"   : "javascript",
   }
 
   constructor: (serializeState) ->
