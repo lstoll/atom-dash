@@ -1,5 +1,7 @@
 # dash package
 
-A short description of your package.
+Opens Dash.app for the current word, scoped to the language in use.
 
-![A screenshot of your spankin' package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+Either run `dash:lookup`, or use `C-c d` to search.
+
+Currently mapped lanuages are Ruby, CoffeeScript and Javascript. More can be mapped in [/lib/dash-goto.coffee](/lib/dash-goto.coffee)
