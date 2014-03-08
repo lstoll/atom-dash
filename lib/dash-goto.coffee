@@ -30,7 +30,7 @@ class DashGoto
     else if dashLangName = @languageMap[grammarName]
       @openDash("#{dashLangName}:#{search}")
     else
-      @errorView.show("No dash docset mapped for #{dashLangName}")
+      @errorView.show("No dash docset mapped for #{grammarName}")
 
   openDash: (query)->
     dashCmd = "open dash://#{query}"
