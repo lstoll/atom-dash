@@ -16,12 +16,10 @@ class DashErrorView extends View
     @detach()
 
   show: (message) ->
-    console.log "DashErrorView was called with message #{message}"
     @message = message
     atom.workspaceView.append(this)
     this.children('.dash .message').html(@message)
     setTimeout @hide, 2000
 
   hide: =>
-    console.log "Going to drop this"
     @detach()

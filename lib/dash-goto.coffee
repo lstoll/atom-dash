@@ -35,8 +35,6 @@ class DashGoto
   openDash: (query)->
     dashCmd = "open dash://#{query}"
     child = exec dashCmd, (error, stdout, stderr) ->
-      console.log('dash stdout: ' + stdout);
-      console.log ('dash stderr: ' + stderr);
       if error
         console.log('dash exec error: ' + error)
         @errorView.show("Error running Dash, see console")
