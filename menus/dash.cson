@@ -1,15 +1,15 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
   '.overlayer':
-      'Enable dash': 'dash:toggle'
+      'Looup in Dash': 'dash:lookup'
 
 'menu': [
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'dash'
+      'label': 'Dash'
       'submenu': [
-        { 'label': 'Toggle', 'command': 'dash:toggle' }
+        { 'label': 'Lookup in Dash', 'command': 'dash:lookup' }
       ]
     ]
   }
