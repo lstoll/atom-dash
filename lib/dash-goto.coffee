@@ -1,8 +1,14 @@
 {View} = require 'atom'
 DashErrorView = require './dash-error-view'
+{exec} = require('child_process')
 
 module.exports =
 class DashGoto
+  languageMap: {
+    "Ruby":         "ruby",
+    "CoffeeScript": "coffee"
+  }
+
   constructor: (serializeState) ->
     atom.workspaceView.command "dash:lookup", => @lookup()
     @errorView = new DashErrorView(serializeState)
@@ -15,5 +21,22 @@ class DashGoto
     @errorView.detach()
 
   lookup: ->
-    console.log "DashView was toggled!"
-    @errorView.show()
+    editor = atom.workspace.getActiveEditor()
+    search = editor.getWordUnderCursor()
+    grammar = editor.getGrammar()
+    grammarName = if grammar == atom.syntax.nullGrammar then "Plain Text" else grammar.name
+    if !search
+      @errorView.show("No word under cursor")
+    else if dashLangName = @languageMap[grammarName]
+      @openDash("#{dashLangName}:#{search}")
+    else
+      @errorView.show("No dash docset mapped for #{dashLangName}")
+
+  openDash: (query)->
+    dashCmd = "open dash://#{query}"
+    child = exec dashCmd, (error, stdout, stderr) ->
+      console.log('dash stdout: ' + stdout);
+      console.log ('dash stderr: ' + stderr);
+      if error
+        console.log('dash exec error: ' + error)
+        @errorView.show("Error running Dash, see console")
